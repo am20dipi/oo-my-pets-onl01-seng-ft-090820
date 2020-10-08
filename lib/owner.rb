@@ -80,11 +80,11 @@ class Owner
   end
   
   def sell_pets
-    self.all.each do |pets|
-      pets.each do |pet|
+    pets.each do |pet, arr|
+      arr.map do |pet|
         pet.mood = "nervous"
       end
-      self.reset_all
+      arr.clear
     end
   end
   
