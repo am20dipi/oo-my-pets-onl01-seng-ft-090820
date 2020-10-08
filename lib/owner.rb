@@ -1,13 +1,13 @@
 class Owner
-  attr_accessor :name, :pets
+  attr_accessor :name, :pets, :dog, :cat
   attr_reader :species
   
   @@owners = []
+  @@pets = {:dogs =>[], :cats =>[]}
   
   def initialize(name, species = "human")
     @name = name
     @species = species
-    @pets = {dogs:[], cats:[]}
     @@owners << self
   end
   
@@ -67,7 +67,7 @@ class Owner
   end
   
   def walk_dogs
-    pets[:dogs].each do |dog|
+    @@pets[:dogs].each do |dog|
       dog.mood = "happy"
     end
     dog.mood
