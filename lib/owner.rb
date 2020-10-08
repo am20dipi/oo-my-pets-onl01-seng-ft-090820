@@ -1,14 +1,14 @@
 class Owner
-  attr_accessor :cats, :dogs
-  attr_reader :name, :species
+  attr_accessor :name, :pets
+  attr_reader :species
   
-  @@all = []
+  @@owners = []
   
   def initialize(name, species = "human")
     @name = name
     @species = species
     @pets = []
-    @@all << self
+    @@owners << self
   end
   
   def name= (name)
@@ -17,6 +17,10 @@ class Owner
     else
       self.name = name
     end
+  end
+  
+  def pets 
+    @pets 
   end
   
   def species= (species)
@@ -36,7 +40,7 @@ class Owner
   end
   
   def self.all
-    @@all
+    @@owners
   end
   
   def self.count
@@ -44,7 +48,7 @@ class Owner
   end
   
   def self.reset_all
-    @@all = []
+    @@owners.all.clear
   end
   
   def cats 
@@ -78,8 +82,12 @@ class Owner
   end
   
   def sell_pets
-    @pets.each {|o| o.owner == nil}
-    @pets
+    pets.each do |species, animals|
+      animals.each do |animal|
+        animal.mood = "nervous"
+      end
+      animals.clear
+    end
   end
   
   def list_pets
