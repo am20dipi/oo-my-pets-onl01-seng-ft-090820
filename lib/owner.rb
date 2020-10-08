@@ -70,6 +70,7 @@ class Owner
       if species == dogs 
         Dog.select do |dog| 
           dog.mood = "happy"
+        end
       end
     end
   end
