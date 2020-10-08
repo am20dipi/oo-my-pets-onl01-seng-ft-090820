@@ -1,5 +1,5 @@
 class Dog
-  attr_accessor :owner, :mood
+  attr_accessor :mood
   attr_reader :name
   
   @@all = []
