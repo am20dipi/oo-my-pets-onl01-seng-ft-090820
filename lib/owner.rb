@@ -7,7 +7,7 @@ class Owner
   def initialize(name, species = "human")
     @name = name
     @species = species
-    @pets = []
+    @pets = {dogs:[], cats:[]}
     @@owners << self
   end
   
@@ -18,10 +18,7 @@ class Owner
       self.name = name
     end
   end
-  
-  def pets 
-    @pets 
-  end
+
   
   def species= (species)
     if self.species != species
@@ -44,7 +41,7 @@ class Owner
   end
   
   def self.count
-    @@all.count
+    @@owners.count
   end
   
   def self.reset_all
@@ -61,22 +58,22 @@ class Owner
   
   def buy_cat(cat_name)
     newcat = Cat.new(cat_name, self)
-    @@all << newcat
+    @@owners << newcat
   end
   
   def buy_dog(dog_name)
     newdog = Dog.new(dog_name, self)
-    @@all << newdog
+    @@owners << newdog
   end
   
   def walk_dogs
-    @pets[:dogs].each do |dog|
+    pets[:dogs].each do |dog|
       dog.mood = "happy"
     end
   end
   
   def feed_cats
-    @pets[:cats].each do |cat|
+    pets[:cats].each do |cat|
       cat.mood = "happy"
     end
   end
