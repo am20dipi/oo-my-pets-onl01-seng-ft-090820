@@ -89,9 +89,7 @@ class Owner
   end
   
   def list_pets
-    numdogs = @pets[:dogs].size.to_i
-    numcats = @pets[:cats].size.to_i
-    @owner.list_pets = "I have #{numdogs} dog(s), and #{numcats} cat(s)."
+    "I have #{pets[:dogs]} dog(s), and #{numcats} cat(s)."
   end
     
     
