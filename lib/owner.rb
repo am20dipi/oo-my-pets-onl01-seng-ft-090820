@@ -11,6 +11,10 @@ class Owner
     @@owners << self
   end
   
+  def pets
+    @@pets
+  end
+  
   def name= (name)
     if self.name != name
       raise NoMethodError
